@@ -1659,8 +1659,8 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .main-footer{
-	background: #4f7a53;
-	padding: 100px 0;
+	background: #12223b;
+	padding: 30px 0;
 }
 
 .footer-logo{
@@ -1675,7 +1675,7 @@ header.main-header .header-sticky.active{
 .footer-links h3{
 	font-size: 24px;
 	font-weight: 700;
-	color: var(--accent-color);
+	color: #FFFFFF;
 	text-transform: capitalize;
 	margin-bottom: 40px;
 }
@@ -1807,7 +1807,7 @@ header.main-header .header-sticky.active{
 	margin: 0 40px;
 	overflow: hidden;
 	border-radius: 40px;
-	background: url('../images/page-header-bg.jpg') no-repeat center center;
+	background: url('../images/about.jpg') no-repeat center center;
 	background-size: cover;
 	padding: 220px 0 120px;
 	position: relative;
