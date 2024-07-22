@@ -33,6 +33,105 @@
 	<link rel="stylesheet" href="css/mousecursor.css">
 	<!-- Main Custom Css -->
 	<link href="css/custom.css" rel="stylesheet" media="screen">
+    <style>
+        .popup {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    justify-content: center; 
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    flex: 1;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.form-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.form-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-content label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #12223b;
+}
+    </style>
 </head>
 <body>
 
@@ -1179,6 +1278,113 @@
 	</footer>
 	<!-- Footer End -->
 
+    <div id="popup-form" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="form-container">
+                <div class="image-container">
+                    <img src="images/popup.png" alt="Home Image">
+                </div>
+                <div class="form-content">
+                    <h2>Register</h2>
+                    <form id="contactForm" action="#" method="POST" data-toggle="validator">
+                        <div class="row">
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" required="">
+                                <option selected>Select the property type</option>
+                                <option value="Residential Construction">
+                                    Residential Construction</option>
+                                <option value="Commercial Construction">Commercial Construction</option>
+                                <option value="
+                                New Home Construction">
+                                New Home Construction</option>
+                                <option value="
+                                Renovation Construction">
+                                Renovation Construction</option>
+                                <option value="
+                                Structural Designing">
+                                Structural Designing</option>
+                                <option value="
+                                Architectural Designing">
+                                Architectural Designing</option>
+                              </select>
+                        </div>
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="varchar" name="name" class="form-control" id="name" placeholder="Plot Size/ Site Area" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="Number" name="Number" class="form-control" id="Number" placeholder="Number of floors" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+            
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="text" name="website" class="form-control" id="website" placeholder="Locality" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="varchar" name="name" class="form-control" id="name" placeholder="Name" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="email" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-6 col-sm-6">
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone number" required="">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-default">submit</button>
+                                <div id="msgSubmit" class="h3 hidden"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('popup-form');
+    var closeBtn = document.querySelector('.close-btn');
+    var form = document.querySelector('form');
+
+    // Function to show the popup
+    function showPopup() {
+        popup.style.display = 'flex';
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+        popup.style.display = 'none';
+    }
+
+    // Auto load the popup when the page loads
+    showPopup();
+
+    // Event listener to close the popup when the close button is clicked
+    closeBtn.addEventListener('click', hidePopup);
+
+    // Event listener to handle form submission
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form submitted!');
+        hidePopup();
+    });
+
+    // Close the popup when clicking outside of the popup content
+    window.addEventListener('click', function(event) {
+        if (event.target == popup) {
+            hidePopup();
+        }
+    });
+});
+
+    </script>
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
