@@ -399,6 +399,7 @@ body{
 	letter-spacing: 0.13em;
     text-transform: uppercase;
     margin-bottom: 20px;
+	margin-top: 50px;
 }
 
 .section-title p{
@@ -1132,7 +1133,6 @@ header.main-header .header-sticky.active{
 	background: var(--secondary-color) url("../images/our-projects-bg.png") no-repeat;
     background-position: left bottom;
     background-size: auto;
-	padding: 100px 0;
 }
 
 .project-item{
