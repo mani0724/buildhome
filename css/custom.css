@@ -1297,9 +1297,7 @@ header.main-header .header-sticky.active{
 /***   10. Our Testiminial css    ***/
 /************************************/
 
-.our-testimonial{
-	padding: 100px 0;
-}
+
 
 .testimonial-slider .swiper-wrapper{
 	cursor: none;
@@ -2553,9 +2551,7 @@ header.main-header .header-sticky.active{
 	margin: 0;
 }
 
-.working-process{
-	padding: 100px 0 70px;
-}
+
 
 .working-process-item{
 	padding: 30px;
